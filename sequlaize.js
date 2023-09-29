@@ -44,19 +44,19 @@ const Model = sequelize.define("model", {
   username: {
     type: Sequelize.STRING, // Corrected
     allowNull: false,
-    unique:true,
+    // unique:true,
   },
   
   number: {
     type: Sequelize.BIGINT,
     allowNull: false,
-    unique:true,
+    // unique:true,
 
   },
   email: {
     type: Sequelize.STRING, // Corrected
     allowNull: false,
-    unique:true,
+    // unique:true,
 
   },
 },

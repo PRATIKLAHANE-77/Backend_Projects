@@ -22,10 +22,15 @@ function renderHTML(models) {
     <ul>`;
 
   models.forEach((model) => {
-    html += `<li>${model.username}, ${model.number}, ${model.email}</li>`;
+    html += `<li>${model.username}, ${model.number}, ${model.email}<button>Delete</button><button>Edit</button></li>`;
   });
 
   html += `</ul>`;
+  // <script>document.getElementByName('Delete').addEventListner('click', (event) =>{ 
+  //   event.preventDefault();
+  //   action = "/delete", method = "DELETE"
+      
+  // })</script> 
   return html;
 }
 
@@ -62,6 +67,22 @@ app.post("/", (req, res) => {
       res.status(500).json({ error: "Internal Server Error" });
     });
 });
+
+
+// app.delete('/delete', (req,res) =>{
+//   Model.destroy({
+//     where: {
+//       id: `(document.getElementByName('Delete').parent).id`, // Specify the ID of the record you want to delete
+//     },
+//   })
+//     .then((result) => {
+//      return Model.findAll();
+//     })
+//     .then((models) => {
+//       const html = renderHTML(models);
+//       res.send(html);
+//     });
+// })
 
 // Sync the database before starting the server
 sequelize
